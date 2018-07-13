@@ -1,13 +1,12 @@
 $("#input").keyup(function () {
 	
 	var name = $("#input").val() + '&nbsp;';
-	console.log(name);
 	$.ajax({
 		type: 'GET',
-		url: '../php/censor.php',
+		url: 'censor.php',
 		statusCode: {
 			404: function(){
-				$("#content").text("Error: 404. page not found");
+				$("#input").val("Error: 404. page not found");
 			}
 		},
 		data: "name="+name,
